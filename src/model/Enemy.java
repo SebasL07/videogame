@@ -9,7 +9,7 @@ public class Enemy{
     /**
      * <b>type</b> is the type of enemy that is classified in
      */
-    private String type;
+    private EnemyType type;
     /**
      * <b>scoreThatRemoves</b> is the score that is removed form the player when the enemy hits it
      */
@@ -28,18 +28,35 @@ public class Enemy{
     /**
      * constructor method from the class enemy
      * @param name String, is the name of the enemy 
-     * @param type String, is the type
+     * @param opType int, is the type
      * @param scoreThatRemoves
      * @param scoreDefeated
      * @param coordsX
      * @param coordsY
      */
-    public Enemy(String name, String type, int scoreThatRemoves, int scoreDefeated, int coordsX, int coordsY){
+    public Enemy(String name, int opType, int scoreThatRemoves, int scoreDefeated, int coordsX, int coordsY){
 
         this.name = name;
-        this.type = type;
         this.scoreThatRemoves = scoreThatRemoves;
         this.scoreDefeated = scoreDefeated;
+
+        switch(opType){
+
+            case (1):
+            type = EnemyType.OGRE;
+            break;
+
+            case (2):
+            type = EnemyType.ABSTRACT;
+            break;
+
+            case (3):
+            type = EnemyType.BOSS;
+            break;
+
+            case (4):
+            type = EnemyType.MAGICIAN;
+        }
 
         coordinates = new Coordinates(coordsX, coordsY);
 
