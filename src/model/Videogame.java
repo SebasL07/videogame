@@ -46,7 +46,7 @@ public class Videogame{
 
     }
 
-    public int findFreeSpace(){
+    public int findFreeSpacePlayer(){
         int pos = -1;
         boolean space = false;
 
@@ -60,12 +60,42 @@ public class Videogame{
         return pos;
     }
 
+    public int findFreeSpaceLevel(){
+        int pos = -1;
+        boolean space = false;
+
+        for(int i = 0; i<MAX_LEVEL&&!space; i++){
+            if (levels[i] == null){
+                pos = i;
+                space = true;
+            }
+        }
+
+        return pos;
+    }
+
     public String addPlayer(String nickname, String name){
         String msg = "No se ha podido registrar al jugador";
 
-        int position = findFreeSpace();
+        int position = findFreeSpacePlayer();
 
-        if()
+        if(position != -1){
+            players[position] = new Player(nickname,name);
+            msg = "Se ha creado exitosamente el jugador";
+        }
         return msg;
     }
+
+    public String addLevel(String id, int score2NextLevel, int optionDifficulty){
+        String msg = "No se ha podido registrar el nivel";
+
+        int position = findFreeSpaceLevel();
+
+        if(position != -1){
+            levels[position] = new Level(id, score2NextLevel, optionDifficulty);
+        }
+        return msg;
+    }
+
+    
 }

@@ -19,6 +19,8 @@ public class Player{
     */
    private int lifes;
 
+   private Level myLevel;
+
     /**
      * constructor method for the class Player
      * @param nickname String, is the nickname of the player
