@@ -6,6 +6,8 @@ public class Treasure{
     private String imageURL;
     private int score;
 
+    private Coordinates coordinates;
+
     /**
      * constructor method from the class Treasure
      * @param name String, is the name of the treasure

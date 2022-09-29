@@ -2,8 +2,8 @@ package model;
 
 public class Level{
 
-    public static final int MAX_TREASURE = 5;
-    public static final int MAX_ENEMY = 4;
+    public static final int MAX_TREASURE = 50;
+    public static final int MAX_ENEMY = 25;
 
     private String id;
     private int score2NextLevel;
@@ -27,9 +27,18 @@ public class Level{
         treasures = new Treasure[MAX_TREASURE];
 
     }
+
+    public String getId(){
+        return id;
+    }
     
 
     public void addEnemy(String name, int opType, int scoreThatRemoves, int scoreDefeated, int coordsX, int coordsY){
+
+        
+    }
+
+    public void addTreasure(String name, String imageURL, int score, int quantity){
 
         
     }

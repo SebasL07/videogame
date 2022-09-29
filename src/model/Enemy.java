@@ -34,7 +34,7 @@ public class Enemy{
      * @param coordsX
      * @param coordsY
      */
-    public Enemy(String name, int opType, int scoreThatRemoves, int scoreDefeated, int coordsX, int coordsY){
+    public Enemy(String name, int opType, int scoreThatRemoves, int scoreDefeated){
 
         this.name = name;
         this.scoreThatRemoves = scoreThatRemoves;
@@ -58,7 +58,7 @@ public class Enemy{
             type = EnemyType.MAGICIAN;
         }
 
-        coordinates = new Coordinates(coordsX, coordsY);
+       
 
     }
 }

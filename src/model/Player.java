@@ -27,11 +27,11 @@ public class Player{
      * @param name String, is the name of the player that owns the nickname
      */
    public Player(String nickname, String name){
-        this.nickname = nickname;
-        this.name = name;
-        score = 10;
-        lifes = 5;
-   }
+      this.nickname = nickname;
+      this.name = name;
+      score = 10;
+      lifes = 5;
+    }
 
    public String getNickname(){
      return nickname;

@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.text.Position;
+
 public class Videogame{
 
     protected static final int MAX_PLAYER = 20;
@@ -12,6 +14,8 @@ public class Videogame{
     public Videogame(int optionResolution){
         players = new Player[MAX_PLAYER];
         levels = new Level[MAX_LEVEL];
+
+        addLevel();
 
         switch(optionResolution){
             case (1):
@@ -60,20 +64,12 @@ public class Videogame{
         return pos;
     }
 
-    public int findFreeSpaceLevel(){
-        int pos = -1;
-        boolean space = false;
-
-        for(int i = 0; i<MAX_LEVEL&&!space; i++){
-            if (levels[i] == null){
-                pos = i;
-                space = true;
-            }
-        }
-
-        return pos;
-    }
-
+    /**
+     * this method creates an object player and add it into the array players[]
+     * @param nickname
+     * @param name
+     * @return msg String, a confirmation message to verify how it went the registration
+     */
     public String addPlayer(String nickname, String name){
         String msg = "No se ha podido registrar al jugador";
 
@@ -86,14 +82,54 @@ public class Videogame{
         return msg;
     }
 
-    public String addLevel(String id, int score2NextLevel, int optionDifficulty){
-        String msg = "No se ha podido registrar el nivel";
+    /**
+     * This method creates automatically the 10 levels
+     * pre : levels[] must be created
+     * pos : levels[] full
+     */
+    public void addLevel(){
 
-        int position = findFreeSpaceLevel();
+        String id = "";
+        int score2NextLevel = 50;
+        int counter = 1;
+        
+        for(int i = 0; i<MAX_LEVEL; i++){
+
+            id = "" + counter;
+
+            levels[i] = new Level(id, score2NextLevel);
+
+            counter++;
+            score2NextLevel += 100;
+
+        }        
+        
+    }
+
+    public int searchLevel(String id){
+        int positionLevel = -1;
+        boolean flag = false;
+
+        for(int i = 0; i<MAX_LEVEL && !flag; i++){
+            if(levels[i] != null && levels[i].getId().equals(id)){
+                positionLevel = i;
+                flag = true;
+            }
+        }
+        return positionLevel;
+    }
+
+    public String addTreasure2Level(String id,String name, String imageURL, int score, int quantity){
+        String msg = "No se pudo realizar el registro";
+
+        int position = searchLevel(id);
 
         if(position != -1){
-            levels[position] = new Level(id, score2NextLevel, optionDifficulty);
+
+            levels[position].
+
         }
+
         return msg;
     }
 
