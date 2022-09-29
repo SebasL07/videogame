@@ -11,9 +11,9 @@ public class Player{
     */
    private String name; 
    /**
-    * initalScore is the initial score of the player. Starts with 10 
+    * score is the initial score of the player. Starts with 10 
     */
-   private int initialScore;
+   private int score;
    /**
     * lifes is the lifes of the player. Starts with 5
     */
@@ -27,8 +27,24 @@ public class Player{
    public Player(String nickname, String name){
         this.nickname = nickname;
         this.name = name;
-        initialScore = 10;
+        score = 10;
         lifes = 5;
+   }
+
+   public String getNickname(){
+     return nickname;
+   }
+
+   public String getName(){
+     return name;
+   }
+
+   public int getScore(){
+     return score;
+   }
+
+   public int getLifes(){
+     return lifes;
    }
 
    
