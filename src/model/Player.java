@@ -3,7 +3,7 @@ package model;
 public class Player{
 
     /** 
-     * nickname is the nickname that the player choose to be called in the videogame
+    * nickname is the nickname that the player choose to be called in the videogame
     */
    private String nickname;
    /**
@@ -31,6 +31,7 @@ public class Player{
       this.name = name;
       score = 10;
       lifes = 5;
+      
     }
 
    public String getNickname(){
@@ -47,6 +48,10 @@ public class Player{
 
    public int getLifes(){
      return lifes;
+   }
+
+   public void setScore(int score){
+    this.score = score;
    }
 
    

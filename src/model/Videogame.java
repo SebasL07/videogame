@@ -91,11 +91,11 @@ public class Videogame{
 
         String id = "";
         int score2NextLevel = 50;
-        int counter = 1;
+        
         
         for(int i = 0; i<MAX_LEVEL; i++){
 
-            id = "" + counter;
+            id = "Nivel " + (i+1);
 
             levels[i] = new Level(id, score2NextLevel);
 
@@ -126,7 +126,9 @@ public class Videogame{
 
         if(position != -1){
 
-            levels[position].
+            levels[position].addTreasure(name, imageURL, score, quantity);
+
+            msg = "Se ha regsitrado con exito";
 
         }
 
