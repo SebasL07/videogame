@@ -1,7 +1,5 @@
 package model;
 
-import javax.swing.text.Position;
-
 public class Videogame{
 
     protected static final int MAX_PLAYER = 20;
@@ -99,7 +97,6 @@ public class Videogame{
 
             levels[i] = new Level(id, score2NextLevel);
 
-            counter++;
             score2NextLevel += 100;
 
         }        

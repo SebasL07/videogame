@@ -38,9 +38,40 @@ public class Level{
         
     }
 
-    public void addTreasure(String name, String imageURL, int score, int quantity){
+    public int countFreeSpacesTreasure(){
+        int freeSpaces = 0;
 
-        
+        for(int i = 0; i<MAX_TREASURE; i++){
+            if(treasures[i] == null){
+                freeSpaces++;
+            }
+        }
+        return freeSpaces;
+    }
+
+    public int findFreeSpaceTreasure(){
+        int pos = -1;
+        boolean flag = false;
+        for(int i = 0; i<MAX_TREASURE&&!flag; i++){
+            if(treasures[i] == null){
+                pos = i;
+            }
+        }
+
+        return pos;
+    }
+
+    public void addTreasure(String name, String imageURL, int score, int quantity){
+        int position = findFreeSpaceTreasure();
+
+        if(countFreeSpacesTreasure() >= quantity){
+            for(int i = 0; i<quantity;i++){
+                if(position != -1){
+                    treasures[position] = new Treasure(name, imageURL, score);
+                }
+            }
+        }
+
     }
 
 
