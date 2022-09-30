@@ -106,9 +106,6 @@ public class MainVideogame{
 	}
 
 	public void registerTreasure(){
-		do{
-
-		}
-			System.out.println("Ingrese el Id del nivel al que desea añadir");
+		
 	}
 }
