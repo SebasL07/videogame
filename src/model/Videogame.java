@@ -116,6 +116,24 @@ public class Videogame{
         return positionLevel;
     }
 
+    /**
+     * Verify the existence of a player without the nickname gave by the user
+     * @param nickname
+     * @return exists boolean, returns the existence of a player with the same nickname
+     */
+    public boolean playerExists(String nickname){
+        boolean exists = false;
+         
+
+        for(int i = 0; i<MAX_PLAYER&&!exists; i++){
+            if(players[i] != null && players[i].getNickname().equals(nickname)){
+                exists = true;
+            }
+        }   
+    
+        return exists;
+    }
+
     public String addTreasure2Level(String id,String name, String imageURL, int score, int quantity){
         String msg = "No se pudo realizar el registro";
 

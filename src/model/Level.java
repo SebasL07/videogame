@@ -31,6 +31,14 @@ public class Level{
     public String getId(){
         return id;
     }
+
+    public int getScore2NextLevel(){
+        return score2NextLevel;
+    }
+
+    public Difficulty difficulty(){
+        return difficulty;
+    }
     
 
     public void addEnemy(String name, int opType, int scoreThatRemoves, int scoreDefeated, int coordsX, int coordsY){
@@ -62,10 +70,12 @@ public class Level{
     }
 
     public void addTreasure(String name, String imageURL, int score, int quantity){
-        int position = findFreeSpaceTreasure();
+        int position = 0;
 
         if(countFreeSpacesTreasure() >= quantity){
+            position = findFreeSpaceTreasure();
             for(int i = 0; i<quantity;i++){
+                position = findFreeSpaceTreasure();
                 if(position != -1){
                     treasures[position] = new Treasure(name, imageURL, score);
                 }
