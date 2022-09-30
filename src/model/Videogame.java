@@ -1,4 +1,5 @@
 package model;
+import java.util.random.*;;
 
 public class Videogame{
 
@@ -72,9 +73,12 @@ public class Videogame{
         String msg = "No se ha podido registrar al jugador";
 
         int position = findFreeSpacePlayer();
+        
+        String id = levels[0].getId();
+        int score2NextLevel = levels[0].getScore2NextLevel();
 
         if(position != -1){
-            players[position] = new Player(nickname,name);
+            players[position] = new Player(nickname,name, id, score2NextLevel);
             msg = "Se ha creado exitosamente el jugador";
         }
         return msg;
@@ -108,7 +112,7 @@ public class Videogame{
         boolean flag = false;
 
         for(int i = 0; i<MAX_LEVEL && !flag; i++){
-            if(levels[i] != null && levels[i].getId().equals(id)){
+            if(levels[i] != null && levels[i].getId().equals("Nivel "+ id)){
                 positionLevel = i;
                 flag = true;
             }
@@ -143,11 +147,39 @@ public class Videogame{
 
             levels[position].addTreasure(name, imageURL, score, quantity);
 
-            msg = "Se ha regsitrado con exito";
+            msg = "Se ha realizado con exito el regsitro";
 
         }
 
         return msg;
+    }
+
+    public void addCoordinates2Treasure(){
+        int x = 0;
+        int y = 0;
+        switch(resolution){
+            case SD:
+            break;
+
+            case QHD:
+            break;
+
+            case HD:
+            break;
+
+            case FHD:
+            break;
+
+            case QUHD:
+            break;
+
+            case UHD:
+            break;
+
+            case UHD_8K:
+            break;
+
+        }
     }
 
     

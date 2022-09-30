@@ -7,8 +7,8 @@ public class Level{
 
     private String id;
     private int score2NextLevel;
+   
     private Difficulty difficulty;
-
     private Enemy[] enemies;
     private Treasure[] treasures;
 
@@ -63,6 +63,7 @@ public class Level{
         for(int i = 0; i<MAX_TREASURE&&!flag; i++){
             if(treasures[i] == null){
                 pos = i;
+                flag = true;
             }
         }
 

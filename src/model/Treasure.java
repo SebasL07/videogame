@@ -20,4 +20,10 @@ public class Treasure{
         this.imageURL = imageURL;
         this.score = score;
     }
+
+    public void addCoordinates(int x, int y){
+
+        coordinates = new Coordinates(x, y);
+        
+    }
 }

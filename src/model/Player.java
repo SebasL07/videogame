@@ -26,12 +26,13 @@ public class Player{
      * @param nickname String, is the nickname of the player
      * @param name String, is the name of the player that owns the nickname
      */
-   public Player(String nickname, String name){
+   public Player(String nickname, String name, String id, int score2NextLevel){
       this.nickname = nickname;
       this.name = name;
       score = 10;
       lifes = 5;
       
+      myLevel = new Level(id, score2NextLevel);
     }
 
    public String getNickname(){

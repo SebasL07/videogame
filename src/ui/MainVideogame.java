@@ -20,7 +20,7 @@ public class MainVideogame{
 		MainVideogame mainObj = new MainVideogame();
 
 
-		System.out.println("Por favor Ingrese la resolucion a la que desea jugar\n 1) Standard(SD)\n 2) QHD\n 13) HD\n 4) FHD \n 5) QUHD \n 6) UHD\n 7) UHD 8K");
+		System.out.println("Por favor Ingrese la resolucion a la que desea jugar\n 1) Standard(SD)\n 2) QHD\n 3) HD\n 4) FHD \n 5) QUHD \n 6) UHD\n 7) UHD 8K");
 		int optionResolution = reader.nextInt();
 		reader.nextLine();
 
@@ -46,10 +46,11 @@ public class MainVideogame{
 
 	public int Menu(){
 		System.out.println("\nEscoja una opcion del menu por favor\n1) Crear jugador" + "\n" + 
-		"2) Registrar enemigo a un nivel" + "\n" + 
+		"2) Registrar enemigo a un nivel(wip)" + "\n" + 
 		"3) Registrar tesoro a un nivel" + "\n" + 
-		"4) Modificar el puntaje de un jugador" + "\n" + 
-		"5) Incrementar nivel de un jugador");
+		"4) Modificar el puntaje de un jugador(wip)" + "\n" + 
+		"5) Incrementar nivel de un jugador(wip)\n" + 
+		"0) Salir de la aplicacion");
 		int option = reader.nextInt();
 		reader.nextLine();
 		
@@ -71,6 +72,7 @@ public class MainVideogame{
 			break;
 
 			case 3:
+			registerTreasure();
 			break;
 
 			case 4: 
@@ -106,6 +108,30 @@ public class MainVideogame{
 	}
 
 	public void registerTreasure(){
+		String id = "";	
+		do{
+			System.out.println("Ingrese el nivel en el que quiere ingresar. Del 1-10");
+			id = reader.next();
+			if(videoController.searchLevel(id) == -1){
+				System.out.println("Ese no es un nivel valido. Por favor intente de nuevo");
+			}
+		}	while(videoController.searchLevel(id) == -1);
+
+		System.out.println("Ingrese el nombre del tesoro");
+		String name = reader.next();
+
+		System.out.println("Ingrese URL de la imagen");
+		String imageURL = reader.nextLine();
+
+		System.out.println("Ingrese el puntaje que da el tesoro");
+		int score = reader.nextInt();
+
+		System.out.println("Cuantos tesoros desea anadir?");
+		int quantity = reader.nextInt();
+
+		System.out.println(videoController.addTreasure2Level(id, name, imageURL, score, quantity)); 
+
+		
 		
 	}
 }
