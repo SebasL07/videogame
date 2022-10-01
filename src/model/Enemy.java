@@ -86,5 +86,6 @@ public class Enemy{
 
         coordinates = new Coordinates(x, y);
         
+   
     }
 }
