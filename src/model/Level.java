@@ -39,12 +39,6 @@ public class Level{
     public Difficulty difficulty(){
         return difficulty;
     }
-    
-
-    public void addEnemy(String name, int opType, int scoreThatRemoves, int scoreDefeated, int coordsX, int coordsY){
-
-        
-    }
 
     public int countFreeSpacesTreasure(){
         int freeSpaces = 0;
@@ -70,7 +64,20 @@ public class Level{
         return pos;
     }
 
-    public void addTreasure(String name, String imageURL, int score, int quantity){
+    public int findFreeSpaceEnemy(){
+        int pos = -1;
+        boolean flag = false;
+        for(int i = 0; i<MAX_ENEMY&&!flag; i++){
+            if(enemies[i] == null){
+                pos = i;
+                flag = true;
+            }
+        }
+
+        return pos;
+    }
+
+    public void addTreasure(String name, String imageURL, int score, int quantity,int x, int y){
         int position = 0;
 
         if(countFreeSpacesTreasure() >= quantity){
@@ -79,9 +86,33 @@ public class Level{
                 position = findFreeSpaceTreasure();
                 if(position != -1){
                     treasures[position] = new Treasure(name, imageURL, score);
+                    treasures[position].addCoordinates(x, y);
                 }
             }
         }
+
+    }
+
+    public void addEnemy(String name, int opType, int scoreThatRemoves, int scoreDefeated,int x, int y){
+
+        int position = findFreeSpaceEnemy();
+        
+        if(position != -1){
+            
+            enemies[position] = new Enemy(name, opType, scoreThatRemoves, scoreDefeated);
+            enemies[position].addCoordinates(x, y);
+        }
+    }
+
+    public boolean enemyExists(String name, EnemyType type){
+        boolean exists = false;
+
+        for(int i = 0; i<MAX_ENEMY && !exists; i++){
+            if(enemies[i] != null && enemies[i].getName().equals(name) && enemies[i].getType() == type){
+                exists = true;
+            }
+        }
+        return exists;
 
     }
 

@@ -1,5 +1,6 @@
 package ui;
 import java.util.Scanner;
+
 import model.Videogame;
 
 //javac -cp src src/ui/Template.java -d bin
@@ -46,9 +47,9 @@ public class MainVideogame{
 
 	public int Menu(){
 		System.out.println("\nEscoja una opcion del menu por favor\n1) Crear jugador" + "\n" + 
-		"2) Registrar enemigo a un nivel(wip)" + "\n" + 
+		"2) Registrar enemigo a un nivel" + "\n" + 
 		"3) Registrar tesoro a un nivel" + "\n" + 
-		"4) Modificar el puntaje de un jugador(wip)" + "\n" + 
+		"4) Modificar el puntaje de un jugador" + "\n" + 
 		"5) Incrementar nivel de un jugador(wip)\n" + 
 		"0) Salir de la aplicacion");
 		int option = reader.nextInt();
@@ -68,7 +69,8 @@ public class MainVideogame{
 			registerPlayer();
 			break;
 
-			case 2: 
+			case 2:
+			registerEnemy(); 
 			break;
 
 			case 3:
@@ -76,6 +78,7 @@ public class MainVideogame{
 			break;
 
 			case 4: 
+			modifyScoreInPlayer();
 			break;
 
 			case 5:
@@ -121,7 +124,7 @@ public class MainVideogame{
 		String name = reader.next();
 
 		System.out.println("Ingrese URL de la imagen");
-		String imageURL = reader.nextLine();
+		String imageURL = reader.next();
 
 		System.out.println("Ingrese el puntaje que da el tesoro");
 		int score = reader.nextInt();
@@ -130,8 +133,44 @@ public class MainVideogame{
 		int quantity = reader.nextInt();
 
 		System.out.println(videoController.addTreasure2Level(id, name, imageURL, score, quantity)); 
+		
+	}
+
+	public void registerEnemy(){
+
+		String id = "";	
+		do{
+			System.out.println("Ingrese el nivel en el que quiere ingresar. Del 1-10");
+			id = reader.next();
+			if(videoController.searchLevel(id) == -1){
+				System.out.println("Ese no es un nivel valido. Por favor intente de nuevo");
+			}
+		}	while(videoController.searchLevel(id) == -1);
+
+		System.out.println("Ingrese el nombre del mounstro");
+		String name = reader.next();
+
+		System.out.println("Ingrese el tipo de mounstro\n 1) Ogro \n 2) Abstracto \n 3) Jefe \n 4) Mago");
+		int opType = reader.nextInt();
+
+		System.out.println("Ingrese la puntuacion que quita al jugador");
+		int scoreThatRemoves = reader.nextInt();
+
+		System.out.println("Ingrese la puntuacion que da el enemigo al ser derrotado");
+		int scoreDefeated = reader.nextInt();
+
+		System.out.println(videoController.addEnemy2Level(id, name, opType, scoreThatRemoves, scoreDefeated));
+	}
+
+	public void modifyScoreInPlayer(){
 
 		
-		
+		System.out.println("Ingrese el nickname del jugador al que le desea realizar el cambio de puntaje");
+		String nickname = reader.next();
+
+		System.out.println("Ingrese el puntaje nuevo");
+		int score = reader.nextInt();
+
+		videoController.modifyScoreInPlayer(nickname, score);
 	}
 }

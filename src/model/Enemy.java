@@ -61,4 +61,30 @@ public class Enemy{
        
 
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getScoreThatRemoves(){
+        return scoreThatRemoves;
+    }
+
+    public int getScoreDefeated(){
+        return scoreDefeated;
+    }
+
+    public EnemyType getType(){
+        return type;
+    }
+
+    /**
+     * @param x
+     * @param y
+     */
+    public void addCoordinates(int x, int y){
+
+        coordinates = new Coordinates(x, y);
+        
+    }
 }

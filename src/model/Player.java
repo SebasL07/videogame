@@ -47,13 +47,18 @@ public class Player{
      return score;
    }
 
-   public int getLifes(){
+    public int getLifes(){
      return lifes;
    }
 
    public void setScore(int score){
     this.score = score;
-   }
+
+  }
+  
+  public Level getMyLevel(){
+    return myLevel;
+  }
 
    
 
