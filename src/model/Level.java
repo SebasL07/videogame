@@ -116,6 +116,11 @@ public class Level{
 
     }
 
+    public String toString(){
+        return id + "\n" +
+        "Puntaje para el siguiente nivel: " + score2NextLevel;
+    }
+
     
 
 

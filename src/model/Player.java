@@ -59,6 +59,20 @@ public class Player{
   public Level getMyLevel(){
     return myLevel;
   }
+
+  public void setMyLevel(Level newLevel){
+    myLevel = newLevel;
+  }
+
+  public String toString(){
+
+    return "Informacion del jugador" + "\n" + 
+    "Nombre: " + name + "\n" +
+    "Nickname: " + nickname + "\n" + 
+    "Puntaje: " + score + "\n" + 
+    "Lifes: " + lifes + "\n" +
+    myLevel.toString();
+  }
   
 
    

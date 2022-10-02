@@ -87,7 +87,8 @@ public class Videogame{
 
         if(position != -1){
             players[position] = new Player(nickname,name, id, score2NextLevel);
-            msg = "Se ha creado exitosamente el jugador";
+            msg = "Se ha creado exitosamente el jugador\n" + 
+            players[position].toString();
         }
         return msg;
     }
@@ -311,7 +312,26 @@ public class Videogame{
 
             msg = "Se realizo el cambio de manera exitosa";
         } else{
-            msg += ".No existe " + nickname + " en el videojuego";
+            msg += ". No existe " + nickname + " en el videojuego";
+        }
+        return msg;
+    }
+
+    public String increaseLevel(String nickname){
+        String msg = "No se puede aumentar el nivel del jugador";
+
+        int position = searchPlayer(nickname);
+
+        if(position != -1){
+
+            if(players[position].getScore() >= players[position].getMyLevel().getScore2NextLevel()){
+
+                players[position].setMyLevel(levels[Integer.parseInt(players[position].getMyLevel().getId().charAt(6) + "")]);
+
+                msg = "\nEl jugador " + nickname + " ha subido de nivel!!!\n\n" + 
+                players[position].toString();
+
+            }
         }
         return msg;
     }

@@ -82,6 +82,7 @@ public class MainVideogame{
 			break;
 
 			case 5:
+			increaseLevel();
 			break;
 
 			default:
@@ -171,6 +172,14 @@ public class MainVideogame{
 		System.out.println("Ingrese el puntaje nuevo");
 		int score = reader.nextInt();
 
-		videoController.modifyScoreInPlayer(nickname, score);
+		System.out.println(videoController.modifyScoreInPlayer(nickname, score));
+	}
+
+	public void increaseLevel(){
+
+		System.out.println("Ingrese el nickname del jugador que desea subir de nivel");
+		String nickname = reader.next();
+
+		System.out.println(videoController.increaseLevel(nickname)); 
 	}
 }
