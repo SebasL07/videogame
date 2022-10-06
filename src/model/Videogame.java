@@ -293,6 +293,8 @@ public class Videogame{
                 break;
             }
            levels[position].addEnemy(name, opType, scoreThatRemoves, scoreDefeated,x,y);
+
+           msg = "Se ha realizado el registro de manera exitosa";
         }
         return msg;
     }
@@ -331,6 +333,9 @@ public class Videogame{
                 msg = "\nEl jugador " + nickname + " ha subido de nivel!!!\n\n" + 
                 players[position].toString();
 
+            }else if(players[position].getScore() < players[position].getMyLevel().getScore2NextLevel()){
+
+                msg = "Al jugador " + nickname + " le faltan " + (players[position].getMyLevel().getScore2NextLevel()-players[position].getScore()) + " puntos para el siguiente nivel";
             }
         }
         return msg;
