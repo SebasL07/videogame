@@ -12,7 +12,7 @@ public class Treasure{
      * constructor method from the class Treasure
      * @param name String, is the name of the treasure
      * @param imageURL String, is the URL for the image of the treasure
-     * @param score int, is the score that gives
+     * @param score int, is the score that gives to the player
      */
     public Treasure(String name, String imageURL, int score){
 

@@ -2,7 +2,13 @@ package model;
 
 public class Coordinates{
     
+    /**
+     * coordsX is an int that represents the coordinates in X
+     */
     private int coordsX;
+    /**
+     * coordsY is an int that represents the coordinates in Y
+     */
     private int coordsY;
 
     /**
@@ -18,7 +24,7 @@ public class Coordinates{
 
     /**
      * getter for the atribute coordsX
-     * @return coordsX
+     * @return coordsX, the coords X
      */
     public int getCoordsX(){
         return coordsX;
@@ -26,7 +32,7 @@ public class Coordinates{
 
      /**
      * getter for the atribute coordsY
-     * @return coordsY
+     * @return coordsY, the coords in Y 
      */
     public int getCoordsY(){
         return coordsY;

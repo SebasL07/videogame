@@ -28,11 +28,11 @@ public class Enemy{
     /**
      * constructor method from the class enemy
      * @param name String, is the name of the enemy 
-     * @param opType int, is the type
-     * @param scoreThatRemoves
-     * @param scoreDefeated
-     * @param coordsX
-     * @param coordsY
+     * @param opType int, is the type of enemy that the user choose
+     * @param scoreThatRemoves int, is the score that removes from the player when it his the player 
+     * @param scoreDefeated int, is the score that gives to the player when it is defeated 
+     * @param coordsX, the coords X in the map
+     * @param coordsY, the coords Y in the map
      */
     public Enemy(String name, int opType, int scoreThatRemoves, int scoreDefeated){
 
@@ -62,25 +62,47 @@ public class Enemy{
 
     }
 
+    /**
+     * get method of the atributte name
+     * @return attribute name
+     */
     public String getName(){
         return name;
     }
-
+    /**
+     * get method of the atributte scoreThatRemoves
+     * @return attribute scoreThatRemoves
+     */
     public int getScoreThatRemoves(){
         return scoreThatRemoves;
     }
-
+    /**
+     * get method of the attribute 
+     * @return attribute scoreDefeated
+     */
     public int getScoreDefeated(){
         return scoreDefeated;
     }
-
+    /**
+     * get method of the attribute type
+     * @return attribute type
+     */
     public EnemyType getType(){
         return type;
     }
+    /**
+     * get method of the attribute coordinates
+     * @return attribute coordinates
+     */
+    public Coordinates getCoordinates(){
+        return coordinates;
+    }
 
     /**
-     * @param x
-     * @param y
+     * method to add the coordinates of the enemy in the map
+     * @param x int, coords in X
+     * @param y int, coords in Y 
+     * pos: object coordinates created
      */
     public void addCoordinates(int x, int y){
 
