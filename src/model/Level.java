@@ -148,7 +148,15 @@ public class Level{
 
     }
 
-
+    /**
+     * method for add an enemy the level
+     * @param name String, the name of the enemy
+     * @param opType,is the option of the type of the enemy
+     * @param scoreThatRemoves int, is the score that removes from the player
+     * @param scoreDefeated int, is the score that gives when it is defeated  
+     * @param x int, coordinates 
+     * @param y
+     */
     public void addEnemy(String name, int opType, int scoreThatRemoves, int scoreDefeated,int x, int y){
 
         int position = findFreeSpaceEnemy();
@@ -177,9 +185,47 @@ public class Level{
         "Puntaje para el siguiente nivel: " + score2NextLevel;
     }
 
-    
+    public String showEnemiesAndTreasures(){
+
+        String msg = "";
+        String enemyMsg = "";
+        String treasureMsg = "";
+
+        for(int i = 0; i<MAX_ENEMY;i++){
+
+            if(enemies[i] != null){
+
+                enemyMsg += enemies[i].getName() + ", "; 
+            }
+
+        }
+
+        for(int i = 0;i<MAX_TREASURE;i++){
+
+            if(treasures[i] != null && !treasureMsg.contains(treasures[i].getName())){
+
+                treasureMsg += treasures[i].getName() + ", ";
+            }
+        }
+
+        msg = "Enemigos: " + enemyMsg + "\n"+ 
+        "Tesoros: " + treasureMsg;
+
+        return msg;
+    }
+
+    public int countTreasure(String name){
+
+        int count = 0;
+
+        for(int i = 0; i<MAX_TREASURE;i++){
+            if(treasures[i] != null && treasures[i].getName().equalsIgnoreCase(name)){
+                count++;
+            }
+        }
+        return count;
+    }
 
 
-    
 
 }

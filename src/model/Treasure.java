@@ -26,4 +26,8 @@ public class Treasure{
         coordinates = new Coordinates(x, y);
         
     }
+
+    public String getName(){
+        return name;
+    }
 }

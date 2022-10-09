@@ -50,7 +50,9 @@ public class MainVideogame{
 		"2) Registrar enemigo a un nivel" + "\n" + 
 		"3) Registrar tesoro a un nivel" + "\n" + 
 		"4) Modificar el puntaje de un jugador" + "\n" + 
-		"5) Incrementar nivel de un jugador(wip)\n" + 
+		"5) Incrementar nivel de un jugador(wip)\n" +
+		"6) Mostrar los enemigos y tesoros de un nivel\n" +
+		"7) Contar tesoro en los niveles\n" +   
 		"0) Salir de la aplicacion");
 		int option = reader.nextInt();
 		reader.nextLine();
@@ -83,6 +85,14 @@ public class MainVideogame{
 
 			case 5:
 			increaseLevel();
+			break;
+
+			case 6:
+			showEnemiesAndTreasures();
+			break;
+
+			case 7:
+			countTreasures();
 			break;
 
 			default:
@@ -181,5 +191,21 @@ public class MainVideogame{
 		String nickname = reader.next();
 
 		System.out.println(videoController.increaseLevel(nickname)); 
+	}
+
+	public void showEnemiesAndTreasures(){
+
+		System.out.println("\nIngrese el nivel del cual quiere saber su informacion de enemigos y tesoros: ");
+		String id = reader.next();
+
+		System.out.println(videoController.showEnemiesAndTreasuresInLevel(id));
+	}
+
+	public void countTreasures(){
+
+		System.out.println("Ingrese el nombre del tesoro que desea contar");
+		String name = reader.next();
+
+		System.out.println("Hay " + videoController.countTreasuresInLevels(name) + " " +name + "(s) en el juego");
 	}
 }

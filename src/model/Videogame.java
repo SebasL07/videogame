@@ -338,7 +338,33 @@ public class Videogame{
                 msg = "Al jugador " + nickname + " le faltan " + (players[position].getMyLevel().getScore2NextLevel()-players[position].getScore()) + " puntos para el siguiente nivel";
             }
         }
+
         return msg;
+    }
+
+    public String showEnemiesAndTreasuresInLevel(String id){
+
+        String msg = "";
+        
+        int pos =  searchLevel(id);
+
+        if(pos != -1){
+
+            msg = levels[pos].showEnemiesAndTreasures();
+        }
+
+        return msg;
+    }
+
+    public int countTreasuresInLevels(String name){
+
+        int count = 0;
+
+        for(int i = 0; i<MAX_LEVEL; i++){
+            count += levels[i].countTreasure(name);
+        }
+        return count;
+        
     }
 
     
