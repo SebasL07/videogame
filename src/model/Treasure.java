@@ -30,4 +30,16 @@ public class Treasure{
     public String getName(){
         return name;
     }
+
+    public String getImageURL(){
+        return imageURL;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public Coordinates getCoordinates(){
+        return coordinates;
+    }
 }

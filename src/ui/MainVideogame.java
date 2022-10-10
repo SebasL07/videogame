@@ -21,7 +21,7 @@ public class MainVideogame{
 		MainVideogame mainObj = new MainVideogame();
 
 
-		System.out.println("Por favor Ingrese la resolucion a la que desea jugar\n 1) Standard(SD)\n 2) QHD\n 3) HD\n 4) FHD \n 5) QUHD \n 6) UHD\n 7) UHD 8K");
+		System.out.println("Por favor Ingrese la resolucion a la que desea jugar\n 1) SD\n 2) QHD\n 3) HD\n 4) FHD \n 5) QUHD \n 6) UHD\n 7) UHD 8K");
 		int optionResolution = reader.nextInt();
 		reader.nextLine();
 
@@ -43,17 +43,19 @@ public class MainVideogame{
 	public void initializeApp(int optionResolution){
 
 		videoController = new Videogame(optionResolution);
+
 	}
 
 	public int Menu(){
-		System.out.println("\nEscoja una opcion del menu por favor\n1) Crear jugador" + "\n" + 
-		"2) Registrar enemigo a un nivel" + "\n" + 
-		"3) Registrar tesoro a un nivel" + "\n" + 
-		"4) Modificar el puntaje de un jugador" + "\n" + 
-		"5) Incrementar nivel de un jugador(wip)\n" +
-		"6) Mostrar los enemigos y tesoros de un nivel\n" +
-		"7) Contar tesoro en los niveles\n" +   
-		"0) Salir de la aplicacion");
+		System.out.println("\nEscoja una opcion del menu por favor\n 1) Crear jugador" + "\n" + 
+		" 2) Registrar enemigo a un nivel" + "\n" + 
+		" 3) Registrar tesoro a un nivel" + "\n" + 
+		" 4) Modificar el puntaje de un jugador" + "\n" + 
+		" 5) Incrementar nivel de un jugador(wip)\n" +
+		" 6) Mostrar los enemigos y tesoros de un nivel\n" +
+		" 7) Contar tesoro en los niveles\n" + 
+		" 8) Contar tipo de enemigo en los niveles\n" +  
+		" 0) Salir de la aplicacion");
 		int option = reader.nextInt();
 		reader.nextLine();
 		
@@ -93,6 +95,10 @@ public class MainVideogame{
 
 			case 7:
 			countTreasures();
+			break;
+
+			case 8:
+			countEnemies();
 			break;
 
 			default:
@@ -194,9 +200,14 @@ public class MainVideogame{
 	}
 
 	public void showEnemiesAndTreasures(){
-
-		System.out.println("\nIngrese el nivel del cual quiere saber su informacion de enemigos y tesoros: ");
-		String id = reader.next();
+		String id = "";	
+		do{
+			System.out.println("\nIngrese el nivel del cual quiere saber su informacion de enemigos y tesoros: ");
+			id = reader.next();
+			if(videoController.searchLevel(id) == -1){
+				System.out.println("Ese no es un nivel valido. Por favor intente de nuevo");
+			}
+		}	while(videoController.searchLevel(id) == -1);
 
 		System.out.println(videoController.showEnemiesAndTreasuresInLevel(id));
 	}
@@ -208,4 +219,13 @@ public class MainVideogame{
 
 		System.out.println("Hay " + videoController.countTreasuresInLevels(name) + " " +name + "(s) en el juego");
 	}
+
+	public void countEnemies(){
+
+		System.out.println("Ingrese el tipo de mounstro que desea buscar\n 1) Ogro \n 2) Abstracto \n 3) Jefe \n 4) Mago");
+		int option = reader.nextInt();
+
+		System.out.println("Hay " + videoController.countEnemiesInLevels(option) + " del tipo de mounstro seleccionado");
+	}
+
 }

@@ -168,6 +168,12 @@ public class Level{
         }
     }
 
+    /**
+     * 
+     * @param name
+     * @param type
+     * @return
+     */
     public boolean enemyExists(String name, EnemyType type){
         boolean exists = false;
 
@@ -179,12 +185,20 @@ public class Level{
         return exists;
 
     }
-
+    
+    /**
+     * Method to string that shows the information of the level
+     * @return message
+     */
     public String toString(){
         return id + "\n" +
         "Puntaje para el siguiente nivel: " + score2NextLevel;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String showEnemiesAndTreasures(){
 
         String msg = "";
@@ -210,10 +224,15 @@ public class Level{
 
         msg = "Enemigos: " + enemyMsg + "\n"+ 
         "Tesoros: " + treasureMsg;
-
+        
         return msg;
     }
-
+    
+    /**
+     * 
+     * @param name
+     * @return
+     */
     public int countTreasure(String name){
 
         int count = 0;
@@ -223,6 +242,48 @@ public class Level{
                 count++;
             }
         }
+        return count;
+    }
+    /**
+     * method for count the enemies by given types in this level
+     * @param option
+     * @return the amount of enemies of a given type
+     */
+    public int countEnemies(int option){
+
+       
+
+        int count = 0;
+
+        EnemyType type = null;
+
+        switch(option){
+
+            case (1):
+            type = EnemyType.OGRE;
+            break;
+
+            case (2):
+            type = EnemyType.ABSTRACT;
+            break;
+
+            case (3):
+            type = EnemyType.BOSS;
+            break;
+
+            case (4):
+            type = EnemyType.MAGICIAN;
+        }
+
+        for(int i = 0; i<MAX_ENEMY;i++){
+
+            if(enemies[i] != null && enemies[i].getType() == type){
+                count++;
+            }
+        }
+
+         
+        
         return count;
     }
 

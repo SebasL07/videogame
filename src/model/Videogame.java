@@ -342,6 +342,11 @@ public class Videogame{
         return msg;
     }
 
+    /**
+     * Method for show the enemies and treasures in a level given by the user
+     * @param id
+     * @return a msg with the information 
+     */
     public String showEnemiesAndTreasuresInLevel(String id){
 
         String msg = "";
@@ -366,6 +371,19 @@ public class Videogame{
         return count;
         
     }
+
+    public int countEnemiesInLevels(int option){
+
+        
+        int count = 0;
+
+        for(int i = 0; i<MAX_LEVEL; i++){
+            count += levels[i].countEnemies(option);
+        }
+
+        return count;
+    }
+
 
     
     
