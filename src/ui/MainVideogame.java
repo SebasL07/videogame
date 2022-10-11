@@ -55,6 +55,10 @@ public class MainVideogame{
 		" 6) Mostrar los enemigos y tesoros de un nivel\n" +
 		" 7) Contar tesoro en los niveles\n" + 
 		" 8) Contar tipo de enemigo en los niveles\n" +  
+		" 9) \n" +
+		" 10)\n" +
+		" 11)\n" +
+		" 12) Mostrar el top 5 jugadores\n " +
 		" 0) Salir de la aplicacion");
 		int option = reader.nextInt();
 		reader.nextLine();
@@ -99,6 +103,10 @@ public class MainVideogame{
 
 			case 8:
 			countEnemies();
+			break;
+
+			case 12:
+			topFivePlayers();
 			break;
 
 			default:
@@ -226,6 +234,12 @@ public class MainVideogame{
 		int option = reader.nextInt();
 
 		System.out.println("Hay " + videoController.countEnemiesInLevels(option) + " del tipo de mounstro seleccionado");
+	}
+
+	public void topFivePlayers(){
+
+		System.out.println("El top 5 de jugadores es : \n"+
+		videoController.top5Players());
 	}
 
 }

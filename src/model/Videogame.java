@@ -1,6 +1,5 @@
 package model;
 
-
 public class Videogame{
 
     protected static final int MAX_PLAYER = 20;
@@ -384,8 +383,80 @@ public class Videogame{
         return count;
     }
 
+    public String top5Players(){
+        String msg = "";
 
-    
+        int topOne = 0;
+        String top1Player = "";
+        
+        for(int i = 0; i<MAX_PLAYER; i++){
+
+            if(players[i] != null && players[i].getScore() > topOne){
+                topOne = players[i].getScore();
+                top1Player = players[i].getNickname();
+            }
+        }
+
+        int topTwo = 0;
+        String top2Player = "";
+
+        for(int i = 0; i<MAX_PLAYER; i++){
+
+            if(players[i] != null && players[i].getScore() < topOne){
+                topTwo = players[i].getScore();
+                top2Player = players[i].getNickname();
+            }
+        }
+
+        int topThree = 0;
+        String top3Player = "";
+
+        for(int i = 0; i<MAX_PLAYER; i++){
+
+            if(players[i] != null && players[i].getScore() < topTwo){
+                topThree = players[i].getScore();
+                top3Player = players[i].getNickname();
+            }
+        }
+
+        int topFour = 0;
+        String top4Player = "";
+
+        for(int i = 0; i<MAX_PLAYER; i++){
+
+            if(players[i] != null && players[i].getScore() < topThree){
+                topFour = players[i].getScore();
+                top4Player = players[i].getNickname();
+            }
+        }
+
+        int topFive = 0;
+        String top5Player = "";
+
+        for(int i = 0; i<MAX_PLAYER; i++){
+
+            if(players[i] != null && players[i].getScore() < topFour){
+                topFive = players[i].getScore();
+                top5Player = players[i].getNickname();
+            }
+        }
+
+        msg = "1. " + top1Player + "\n" +
+        "2. " + top2Player + "\n" + 
+        "3. " + top3Player + "\n" + 
+        "4. " + top4Player + "\n" +
+        "5. " + top5Player + "\n";
+
+
+
+
+
+        
+        return msg;
+
+    } 
+
+
     
    
 
