@@ -287,6 +287,22 @@ public class Level{
         return count;
     }
 
+    public Enemy searchEnemyGreaterScore(){
+
+        Enemy enemy = null;
+
+        int greaterScore = 0;
+
+        for(int i = 0; i<MAX_ENEMY; i++){
+          if(enemy != null && enemies[i] != null && enemies[i].getScoreDefeated() > greaterScore){
+            greaterScore = enemies[i].getScoreDefeated();
+            enemy = enemies[i];
+          }  
+        }
+
+        return enemy;
+    }
+
 
 
 }

@@ -446,15 +446,31 @@ public class Videogame{
         "3. " + top3Player + "\n" + 
         "4. " + top4Player + "\n" +
         "5. " + top5Player + "\n";
-
-
-
-
-
         
         return msg;
 
     } 
+
+    public String searchEnemyGreaterScore(){
+
+        String msg = "No hay enemigos creados aun";
+
+        Enemy enemy = levels[0].searchEnemyGreaterScore();
+        int pos = 0;
+
+        for(int i = 0;i<MAX_LEVEL;i++){
+            if(enemy != null && enemy.getScoreDefeated() < levels[i].searchEnemyGreaterScore().getScoreDefeated()){
+                enemy = levels[i].searchEnemyGreaterScore();
+                pos = i;
+            }
+        }
+
+        if(enemy != null){
+            msg = "El enemigo que mayor puntaje otorga es " + enemy.getName() + " y esta ubicado en el " + levels[pos].getId();
+        }
+       
+        return msg;
+    }
 
 
     
