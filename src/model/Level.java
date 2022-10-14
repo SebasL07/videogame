@@ -47,6 +47,56 @@ public class Level{
         treasures = new Treasure[MAX_TREASURE];
 
     }
+    /**
+     * Method for calculate the total score that give all the enemies in the level
+     * Pre: enemies[] must be initialized
+     * @return totalScoreEnemy int, the total score of all enemies 
+     */
+    public int totalScoreEnemy(){
+
+        int totalScoreEnemy = 0;
+
+        for(int i = 0; i<MAX_ENEMY; i++){
+            if(enemies[i] != null){
+                totalScoreEnemy += enemies[i].getScoreDefeated();
+            }
+        }
+
+        return totalScoreEnemy;
+    }
+    /**
+     * Method for calculate the total score that give all the treasures in the level
+     * pre: treasures[] must be initialized
+     * @return totalScoreTreasure int, the total score of all treasures 
+     */
+    public int totalScoreTreasure(){
+        
+        int totalScoreTreasure = 0;
+
+        for(int i = 0; i<MAX_TREASURE; i++){
+            if(treasures[i] != null){
+                totalScoreTreasure += treasures[i].getScore();
+            }
+        }
+
+        return totalScoreTreasure;
+    }
+
+    /**
+     * Method for calculate the difficulty of the level by the quantity of score that give the total of enemies 
+     * and treasures. TotalScoreEnemy GREATER THAN TotalScoreTreasure is HARD. TotalScoreEnemy EQUALS TotalScoreTreasure is NORMAL.
+     * TotalScoreEnemy LESS THAN TotalScoreTreasure is EASY.
+     */
+    public void calculateDifficulty(){
+
+        if(totalScoreEnemy() > totalScoreTreasure()){
+            difficulty = Difficulty.HARD;
+        } else if(totalScoreEnemy() == totalScoreTreasure()){
+            difficulty = Difficulty.MEDIUM;
+        } else if(totalScoreEnemy() < totalScoreTreasure()){
+            difficulty = Difficulty.EASY;
+        }
+    }
 
     /**
      * get method of the attribute id
@@ -154,8 +204,8 @@ public class Level{
      * @param opType,is the option of the type of the enemy
      * @param scoreThatRemoves int, is the score that removes from the player
      * @param scoreDefeated int, is the score that gives when it is defeated  
-     * @param x int, coordinates 
-     * @param y
+     * @param x int, coordinates in axis X
+     * @param y int, coordinates in axis Y
      */
     public void addEnemy(String name, int opType, int scoreThatRemoves, int scoreDefeated,int x, int y){
 
@@ -169,13 +219,33 @@ public class Level{
     }
 
     /**
-     * 
-     * @param name
-     * @param type
-     * @return
+     * Methos for know if a enemy already exists
+     * @param name String, the name of the enemy
+     * @param type EnemyType, is the type of the enemy
+     * @return exists boolean, return the value depending on the result. True means that already exists
+     * False means that the enemy doesn't exist
      */
-    public boolean enemyExists(String name, EnemyType type){
+    public boolean enemyExists(String name, int opType){
         boolean exists = false;
+        
+        EnemyType type = null;
+        switch(opType){
+            
+            case (1):
+            type = EnemyType.OGRE;
+            break;
+
+            case (2):
+            type = EnemyType.ABSTRACT;
+            break;
+
+            case (3):
+            type = EnemyType.BOSS;
+            break;
+
+            case (4):
+            type = EnemyType.MAGICIAN;
+        }
 
         for(int i = 0; i<MAX_ENEMY && !exists; i++){
             if(enemies[i] != null && enemies[i].getName().equals(name) && enemies[i].getType() == type){
@@ -196,8 +266,9 @@ public class Level{
     }
 
     /**
-     * 
-     * @return
+     * Method for show the name of the enemies that are created in the level
+     * pre: enemies[] and treasures[] must be initialized
+     * @return msg String, the name of the enemies and treasures separated with commas
      */
     public String showEnemiesAndTreasures(){
 
@@ -229,9 +300,9 @@ public class Level{
     }
     
     /**
-     * 
-     * @param name
-     * @return
+     * Method for count the amount of a specific treasure in the level
+     * @param name String, is the name of the treasure
+     * @return count int, is the times that treasure is in the level
      */
     public int countTreasure(String name){
 
@@ -250,9 +321,6 @@ public class Level{
      * @return the amount of enemies of a given type
      */
     public int countEnemies(int option){
-
-       
-
         int count = 0;
 
         EnemyType type = null;
@@ -301,6 +369,25 @@ public class Level{
         }
 
         return enemy;
+    }
+
+    public int countConsonantsEnemy(){
+        int count = 0;
+        String name = "";
+        for(int i = 0; i<MAX_ENEMY;i++){
+            if(enemies[i] != null){
+                name = enemies[i].getName().toLowerCase();
+                for(int j = 0; j<name.length();j++){
+                
+                    if(name.charAt(j) != 'a' || name.charAt(j) != 'e' || name.charAt(j) != 'i' ||name.charAt(j) != 'o' ||name.charAt(j) != 'u'){
+
+                        count++;
+                    }
+                }
+            }
+            
+        }       
+        return count;
     }
 
 

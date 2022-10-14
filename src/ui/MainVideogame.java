@@ -74,13 +74,13 @@ public class MainVideogame{
 		" 2) Registrar enemigo a un nivel" + "\n" + 
 		" 3) Registrar tesoro a un nivel" + "\n" + 
 		" 4) Modificar el puntaje de un jugador" + "\n" + 
-		" 5) Incrementar nivel de un jugador(wip)\n" +
+		" 5) Incrementar nivel de un jugador\n" +
 		" 6) Mostrar los enemigos y tesoros de un nivel\n" +
 		" 7) Contar tesoro en los niveles\n" + 
 		" 8) Contar tipo de enemigo en los niveles\n" +  
 		" 9) \n" +
 		" 10) Enemigo que mayor puntaje otorga\n" +
-		" 11)\n" +
+		" 11) Contar consonantes en los nombres de enemigos\n" +
 		" 12) Mostrar el top 5 jugadores\n " +
 		" 0) Salir de la aplicacion");
 		int option = reader.nextInt();
@@ -133,6 +133,10 @@ public class MainVideogame{
 
 			case 10:
 			searchEnemyGreaterScore();
+			break;
+
+			case 11:
+			countConsonants();
 			break;
 
 			case 12:
@@ -217,11 +221,23 @@ public class MainVideogame{
 			}
 		}	while(videoController.searchLevel(id) == -1);
 
-		System.out.println("Ingrese el nombre del mounstro");
-		String name = reader.next();
+		String name = "";
+		int opType = 0;
 
-		System.out.println("Ingrese el tipo de mounstro\n 1) Ogro \n 2) Abstracto \n 3) Jefe \n 4) Mago");
-		int opType = reader.nextInt();
+		do{
+
+			System.out.println("Ingrese el nombre del mounstro");
+			name = reader.next();
+
+			System.out.println("Ingrese el tipo de mounstro\n 1) Ogro \n 2) Abstracto \n 3) Jefe \n 4) Mago");
+			opType = reader.nextInt();
+
+			if(videoController.getLevel(Integer.parseInt(id)-1).enemyExists(name, opType)){
+				System.out.println("Enemigo ya existente, por favor ingrese la informacion de nuevo");
+			}
+			
+		}while(videoController.getLevel(Integer.parseInt(id)-1).enemyExists(name, opType));
+		
 
 		System.out.println("Ingrese la puntuacion que quita al jugador");
 		int scoreThatRemoves = reader.nextInt();
@@ -291,14 +307,16 @@ public class MainVideogame{
 	}
 
 	public void topFivePlayers(){
-
 		System.out.println("El top 5 de jugadores es : \n"+
 		videoController.top5Players());
 	}
 
 	public void searchEnemyGreaterScore(){
-		
 		System.out.println(videoController.searchEnemyGreaterScore());
+	}
+
+	public void countConsonants(){
+		System.out.println(videoController.countConsonants());
 	}
 
 }

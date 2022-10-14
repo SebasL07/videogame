@@ -51,6 +51,10 @@ public class Videogame{
         }
 
     }
+
+    public Level getLevel(int i){
+        return levels[i];
+    }
     
     /**
      * Method to find a free space in the array players
@@ -430,13 +434,11 @@ public class Videogame{
             }
         }
 
-        int topFive = 0;
         String top5Player = "";
 
         for(int i = 0; i<MAX_PLAYER; i++){
 
             if(players[i] != null && players[i].getScore() < topFour){
-                topFive = players[i].getScore();
                 top5Player = players[i].getNickname();
             }
         }
@@ -469,6 +471,20 @@ public class Videogame{
             msg = "El enemigo que mayor puntaje otorga es " + enemy.getName() + " y esta ubicado en el " + levels[pos].getId();
         }
        
+        return msg;
+    }
+
+    public String countConsonants(){
+
+        String msg = "";
+        int count = 0;
+
+        for(int i = 0;i<MAX_LEVEL;i++){
+            count += levels[i].countConsonantsEnemy();
+        }
+
+        msg = "La cantidad de consonantes en los nombres de los enemigos es " + count;
+        
         return msg;
     }
 
