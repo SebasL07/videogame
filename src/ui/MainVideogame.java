@@ -276,7 +276,10 @@ public class MainVideogame{
 
 		System.out.println(videoController.increaseLevel(nickname)); 
 	}
-
+	/**
+	 * Method that shows all the enemies and treasures in an specific level given by the user. 
+	 * If the level do not exist it asks again
+	 */
 	public void showEnemiesAndTreasures(){
 		String id = "";	
 		do{
@@ -289,7 +292,10 @@ public class MainVideogame{
 
 		System.out.println(videoController.showEnemiesAndTreasuresInLevel(id));
 	}
-
+	/**
+	 * Method to count a specific treasure in the levels. Asks the name of the treasure that is going to be
+	 * count in the levels
+	 */
 	public void countTreasures(){
 
 		System.out.println("Ingrese el nombre del tesoro que desea contar");
@@ -297,7 +303,10 @@ public class MainVideogame{
 
 		System.out.println("Hay " + videoController.countTreasuresInLevels(name) + " " +name + "(s) en el juego");
 	}
-
+	/**
+	 * Method to count a specific type of enemy in the levels, asks the type of enemy that is going to be counted
+	 * in the levels, then shows the reults of the search  
+	 */
 	public void countEnemies(){
 
 		System.out.println("Ingrese el tipo de mounstro que desea buscar\n 1) Ogro \n 2) Abstracto \n 3) Jefe \n 4) Mago");
@@ -305,16 +314,23 @@ public class MainVideogame{
 
 		System.out.println("Hay " + videoController.countEnemiesInLevels(option) + " del tipo de mounstro seleccionado");
 	}
-
+	/**
+	 * Method in that shows a list of the top 5 players in al the games
+	 */
 	public void topFivePlayers(){
 		System.out.println("El top 5 de jugadores es : \n"+
 		videoController.top5Players());
 	}
-
+	/**
+	 * Method that shows the enemy that gives the greater amount of score when it is defeated and shows its name
+	 * and where is located
+	 */
 	public void searchEnemyGreaterScore(){
 		System.out.println(videoController.searchEnemyGreaterScore());
 	}
-
+	/**
+	 * Method to count the consonants in the names of the enemies in all the game
+	 */
 	public void countConsonants(){
 		System.out.println(videoController.countConsonants());
 	}
