@@ -200,6 +200,7 @@ public class Level{
 
     /**
      * method for add an enemy the level
+     * pre: enemies[] must be initialized
      * @param name String, the name of the enemy
      * @param opType,is the option of the type of the enemy
      * @param scoreThatRemoves int, is the score that removes from the player
@@ -220,6 +221,7 @@ public class Level{
 
     /**
      * Methos for know if a enemy already exists
+     * pre: enemies[] must be initialized
      * @param name String, the name of the enemy
      * @param type EnemyType, is the type of the enemy
      * @return exists boolean, return the value depending on the result. True means that already exists
@@ -355,6 +357,11 @@ public class Level{
         return count;
     }
 
+    /**
+     * Method to know which is the enemy that gives the greater amount of score in the level
+     * pre: enemies[] must be initialized
+     * @return enemy Enemy, the object enemy that represents the enemy with the greater score in the level
+     */
     public Enemy searchEnemyGreaterScore(){
 
         Enemy enemy = null;
@@ -371,6 +378,10 @@ public class Level{
         return enemy;
     }
 
+    /**
+     * Method to count the consonants in the names of the enemies in all the level
+     * @return count int, the count of the consonants found in the names of the enemies
+     */
     public int countConsonantsEnemy(){
         int count = 0;
         String name = "";

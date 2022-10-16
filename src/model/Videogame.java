@@ -1,12 +1,26 @@
 package model;
 
 public class Videogame{
-
+    /**
+     * MAX_PLAYER is the size of the array palyers[]
+     */
     protected static final int MAX_PLAYER = 20;
+    /**
+     * MAX_LEVEL is the size of the array levels[]
+     */
     protected static final int MAX_LEVEL = 10; 
 
+    /**
+     * players is an array of objects type Player
+     */
     private Player[] players;
+    /**
+     * levels is an array of objects type Level
+     */
     private Level[] levels;
+    /**
+     * resolution is the resolution that the will be played
+     */
     private Resolution resolution;
 
     /**
@@ -51,7 +65,11 @@ public class Videogame{
         }
 
     }
-
+    /**
+     * Method to get the Level
+     * @param i int, is the pos of the level in the array that the user wants to see
+     * @return level[i] Level
+     */
     public Level getLevel(int i){
         return levels[i];
     }
@@ -122,7 +140,7 @@ public class Videogame{
     /**
      * Method to search a level by a given id
      * @param id
-     * @return
+     * @return pos int, the position of the level with that id
      */
     public int searchLevel(String id){
         int positionLevel = -1;
@@ -139,8 +157,8 @@ public class Videogame{
 
     /**
      * method to search a player by a given nickname
-     * @param nickname
-     * @return
+     * @param nickname String, is the nickname which the user wants to search
+     * @return pos int, the position in the array where is the player
      */
     public int searchPlayer(String nickname){
         int positionPlayer = -1;
@@ -157,7 +175,7 @@ public class Videogame{
     }
     /**
      * Verify the existence of a player without the nickname gave by the user
-     * @param nickname
+     * @param nickname String, is the nickname that is going to be compared to know if the player exists
      * @return exists boolean, returns the existence of a player with the same nickname
      */
     public boolean playerExists(String nickname){
@@ -175,12 +193,12 @@ public class Videogame{
 
     /**
      * Method to add a treasure to a level
-     * @param id
-     * @param name
-     * @param imageURL
-     * @param score
-     * @param quantity
-     * @return
+     * @param id String, is the id of the level where is going to be placed the treasure 
+     * @param name String, is the name of the treasure
+     * @param imageURL String, is the URl of the image of the treasure
+     * @param score int, is the score that gives to th player 
+     * @param quantity int, is the the quantity of players that is going to be saved
+     * @return msg String, showing the result of the registration
      */
     public String addTreasure2Level(String id,String name, String imageURL, int score, int quantity){
         String msg = "No se pudo realizar el registro";
@@ -242,12 +260,12 @@ public class Videogame{
 
     /**
      * Method to add an enemy to a level
-     * @param id
-     * @param name
-     * @param opType
-     * @param scoreThatRemoves
-     * @param scoreDefeated
-     * @return
+     * @param id String, is the id of the level where is going to be placed the treasure
+     * @param name String, is the name of the enemy
+     * @param opType int, is the option to choose the type of the monster
+     * @param scoreThatRemoves int, score that removes from when it attacks it
+     * @param scoreDefeated int, score that gives to the player when is defeated
+     * @return msg String, showing the restult of the registrtation
      */
     public String addEnemy2Level(String id, String name, int opType, int scoreThatRemoves, int scoreDefeated){
         String msg = "No se ha podido realizar el registro";
@@ -304,9 +322,9 @@ public class Videogame{
 
     /**
      * Method tho modify the score of a player
-     * @param nickname
-     * @param score
-     * @return
+     * @param nickname String, is the nickname of the player that is going to be modified
+     * @param score int, is the new score
+     * @return msg String, showing how it went the modification
      */
     public String modifyScoreInPlayer(String nickname, int score){
         String msg = "No se ha podido modificar el puntaje del jugador";
@@ -322,6 +340,11 @@ public class Videogame{
         return msg;
     }
 
+    /**
+     * Method to increase the level of a player
+     * @param nickname String, is the nickname of the player 
+     * @return msg String, showing how it went the increment of the level
+     */
     public String increaseLevel(String nickname){
         String msg = "No se puede aumentar el nivel del jugador";
 
@@ -347,7 +370,7 @@ public class Videogame{
 
     /**
      * Method for show the enemies and treasures in a level given by the user
-     * @param id
+     * @param id  String, is the id of the level that the user wants to see the information
      * @return a msg with the information 
      */
     public String showEnemiesAndTreasuresInLevel(String id){
@@ -363,7 +386,12 @@ public class Videogame{
 
         return msg;
     }
-
+    /**
+     * Method to count an specific treasure in the levels
+     * pre: levels[] must be initialized
+     * @param name String, name of teh treasure is going to be count
+     * @return count int, the total of that specific treasure found
+     */
     public int countTreasuresInLevels(String name){
 
         int count = 0;
@@ -374,7 +402,12 @@ public class Videogame{
         return count;
         
     }
-
+    /**
+    * Method to count an specific type of enemy in the levels
+    * pre: levels[] must be initialized
+    * @param int option, option of the type of enemy that is going to be count
+    * @return count int, the total of that specific type of monster found
+    */
     public int countEnemiesInLevels(int option){
 
         
@@ -386,7 +419,10 @@ public class Videogame{
 
         return count;
     }
-
+    /**
+     * Method to show the top 5 players in the game
+     * @return msg String, a list of the nicknames of the top 5 players
+     */
     public String top5Players(){
         String msg = "";
 
@@ -452,7 +488,10 @@ public class Videogame{
         return msg;
 
     } 
-
+    /**
+     * Method to find the enemy that give the greater amount of score when it is defeated
+     * @return msg String, show the name of the enemy and where it si placed 
+     */
     public String searchEnemyGreaterScore(){
 
         String msg = "No hay enemigos creados aun";
@@ -473,7 +512,10 @@ public class Videogame{
        
         return msg;
     }
-
+    /**
+     * Method to count the amount of consonants in the names of the enemies
+     * @return msg String, show the amount of consonants in the names of teh enemies
+     */
     public String countConsonants(){
 
         String msg = "";

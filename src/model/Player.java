@@ -34,36 +34,62 @@ public class Player{
       
       myLevel = new Level(id, score2NextLevel);
     }
-
+  
+    /**
+     * Method to get the nickanme
+     * @return nickname String
+     */
    public String getNickname(){
      return nickname;
    }
 
-   public String getName(){
-     return name;
+   /**
+    * Method to get the nickanme
+    * @return nickname String
+    */
+  public String getName(){
+   return name;
    }
-
+   /**
+    * Method to get the score
+    * @return score int
+    */
    public int getScore(){
      return score;
    }
-
+   /**
+    * Method ti get the lifes
+    * @return lifes int
+    */
     public int getLifes(){
      return lifes;
    }
-
+   /**
+    * Method to set the score
+    * @param score int, the new score
+    */
    public void setScore(int score){
     this.score = score;
 
   }
-  
+  /**
+   * Method to get the Level(obj) where is the player
+   * @return myLevel Level
+   */
   public Level getMyLevel(){
     return myLevel;
   }
 
+  /**
+   * Method to set the attribute myLevel
+   * @param newLevel Level, is the new where is going to be the player
+   */
   public void setMyLevel(Level newLevel){
     myLevel = newLevel;
   }
-
+  /**
+   * Method toString to show the information of the player
+   */
   public String toString(){
 
     return "Informacion del jugador" + "\n" + 
