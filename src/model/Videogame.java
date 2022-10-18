@@ -410,7 +410,7 @@ public class Videogame{
     */
     public int countEnemiesInLevels(int option){
 
-        
+
         int count = 0;
 
         for(int i = 0; i<MAX_LEVEL; i++){
@@ -514,7 +514,7 @@ public class Videogame{
     }
     /**
      * Method to count the amount of consonants in the names of the enemies
-     * @return msg String, show the amount of consonants in the names of teh enemies
+     * @return msg String, show the amount of consonants in the names of teh enemies    
      */
     public String countConsonants(){
 

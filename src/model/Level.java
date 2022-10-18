@@ -116,7 +116,7 @@ public class Level{
     * get method of the attribute difficulty
     * @return attribute difficulty
     */
-    public Difficulty difficulty(){
+    public Difficulty getDifficulty(){
         return difficulty;
     }
 
